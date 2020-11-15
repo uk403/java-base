@@ -1,0 +1,11 @@
+
+\
+java:S1118":Add a private constructor to hide the implicit public one.(ïÅ¼•ıÿÿÿÿ8§¼İÓ.
+E
+java:S1444"(Make this "public static t1" field final(Æ‡èµ8§¼İÓ.
+L
+java:S3740"/Provide the parametrized type for this generic.(Æ‡èµ8§¼İÓ.
+k
+java:S1104"NMake t1 a static final constant or non-public and provide accessors if needed.(Æ‡èµ8§¼İÓ.
+L
+java:S3740"/Provide the parametrized type for this generic.(Æ‡èµ8§¼İÓ.

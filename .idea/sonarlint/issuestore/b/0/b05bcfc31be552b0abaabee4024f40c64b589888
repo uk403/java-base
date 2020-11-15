@@ -1,0 +1,13 @@
+
+U	java:S106A"9Replace this use of System.out or System.err by a logger.(Ѓ ЛЃ8а‹ЈсХ.
+U	java:S106"9Replace this use of System.out or System.err by a logger.(еѕјЊ8іЄјРФ.
+Z	java:S106$"9Replace this use of System.out or System.err by a logger.(ьХйШяяяяя8іЄјРФ.
+v
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ћµ†§8іЄјРФ.
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(Э’›Зщяяяя8іЄјРФ.
+D
+java:S2189?""Add an end condition to this loop.(п€ћяяяяя8іЄјРФ.
+Z	java:S1068"9Replace this use of System.out or System.err by a logger.(ЧµІяэяяяя8іЄјРФ.
+c
+java:S2142D"FEither re-interrupt this method or rethrow the "InterruptedException".(д №Ђ8іЄјРФ.
+X	java:S125"<This block of commented-out lines of code should be removed.(Гяшћ8“ЁЎсХ.

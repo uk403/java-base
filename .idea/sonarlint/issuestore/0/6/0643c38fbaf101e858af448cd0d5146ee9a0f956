@@ -1,0 +1,10 @@
+
+J
+java:S1128"/Remove this unused import 'java.sql.SQLOutput'.(ê¤òÃùÿÿÿÿ
+\
+java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+S	java:S106"9Replace this use of System.out or System.err by a logger.(‘Þî½üÿÿÿÿ
+_
+java:S2147"DCombine this catch with the one at line 19, which has the same body.(åþŒóùÿÿÿÿ
+J
+java:S3740"/Provide the parametrized type for this generic.(’¼­’úÿÿÿÿ
