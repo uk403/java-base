@@ -1,4 +1,4 @@
-package com.ukyu.io;
+package com.ukyu.base.io;
 
 /**
  * @author ukyu

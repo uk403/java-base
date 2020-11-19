@@ -1,6 +1,4 @@
-package com.ukyu.io;
-
-import sun.java2d.pipe.SpanIterator;
+package com.ukyu.base.io;
 
 import java.io.*;
 

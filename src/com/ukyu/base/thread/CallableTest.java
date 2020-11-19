@@ -1,6 +1,5 @@
-package com.ukyu.thread;
+package com.ukyu.base.thread;
 
-import java.sql.SQLOutput;
 import java.util.concurrent.*;
 
 /**

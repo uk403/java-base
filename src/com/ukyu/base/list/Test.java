@@ -1,8 +1,4 @@
-package com.ukyu.list;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
+package com.ukyu.base.list;
 
 /**
  * @author ukyu

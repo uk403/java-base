@@ -1,4 +1,4 @@
-package com.ukyu.thread;
+package com.ukyu.base.thread;
 
 import static java.lang.Thread.interrupted;
 
