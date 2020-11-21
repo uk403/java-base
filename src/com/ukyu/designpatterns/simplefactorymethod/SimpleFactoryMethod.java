@@ -1,10 +1,4 @@
-package com.ukyu.designpatterns;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.ThreadPoolExecutor;
+package com.ukyu.designpatterns.simplefactorymethod;
 
 /**
  * 以程序员、产品经理为例子
@@ -25,14 +19,16 @@ import java.util.concurrent.ThreadPoolExecutor;
  *
  * 模式的应用：
  *
+ * 简单工厂模式
+ * 不符合'开闭原则'，当想要添加一个新的产品时，会破坏工厂类
  * @author ukyu
  * @date 2020/11/19
  **/
 public class SimpleFactoryMethod {
     public static void main(String[] args) {
-        Worker worker0 = Boss.getWorker("Programmer");
+        Worker worker0 = Leader.getWorker("Programmer");  // 可以通过配置文件和反射获得
         worker0.doWhat();
-        Worker worker1 = Boss.getWorker("ProductManager");
+        Worker worker1 = Leader.getWorker("ProductManager");
         worker1.doWhat();
 
         // 模式的应用
@@ -63,7 +59,7 @@ interface Worker{
     void doWhat();
 }
 
-class Boss{
+class Leader{
     public static Worker getWorker(String position){
         if("Programmer".equals(position))
         {
@@ -77,7 +73,7 @@ class Boss{
 
 //        try {
 //            //  调用
-//            //  Worker worker2 = Boss.getWorker("com.ukyu.designpatterns.Programmer");
+//            //  Worker worker2 = Boss.getWorker("com.ukyu.designpatterns.simplefactorymethod.Programmer");
 //            //  worker2.doWhat();
 //            Class<?> clazz = Class.forName(position);
 //            return (Worker) clazz.newInstance();
