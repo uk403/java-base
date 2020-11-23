@@ -1,7 +1,7 @@
 package com.ukyu.designpatterns.simplefactorymethod;
 
 /**
- * 以程序员、产品经理为例子
+ * 以程序员、产品经理为例子 4（满分5） -- 创建型模式
  *
  * 简单工厂模式（静态工厂方法模式）
  *
