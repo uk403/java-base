@@ -2,6 +2,7 @@ package com.ukyu.base.stream;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -11,14 +12,16 @@ import java.util.stream.Collectors;
  **/
 public class Test {
     public static void main(String[] args) {
-        List<String> list1 = new ArrayList<>();
-        list1.add("2020-09-01");
-        list1.add("2020-08-02");
-        list1.add("2020-01-14");
-        list1.add("2020-10-11");
-        list1.add("2020-07-11");
-        list1 = list1.stream().sorted(String::compareTo).collect(Collectors.toList());
-        System.out.println(list1);
+        List<Person> list1 = new ArrayList<>();
+        list1.add(new Person("ukyu", 1));
+        list1.add(new Person("ukyu", 2));
+        list1.add(new Person("xinxin", 1));
+        list1.add(new Person("pig", 1));
+
+        list1.stream().
+                collect(Collectors.toMap(Person::getName, Person::getRuleId, (k1, k2) -> k2)).
+                forEach((k,v) -> System.out.println(k + ": " + v));
+
 
     }
 }

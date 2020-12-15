@@ -1,9 +1,5 @@
 package com.ukyu.base.enumtest;
 
-import com.ukyu.base.StringTest;
-
-import java.util.Arrays;
-
 /**
  * @author ukyu
  * @date 2020/11/24

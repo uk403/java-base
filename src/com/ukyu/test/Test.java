@@ -1,11 +1,8 @@
 package com.ukyu.test;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * @author ukyu
