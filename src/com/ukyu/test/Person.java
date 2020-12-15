@@ -2,7 +2,7 @@ package com.ukyu.test;
 
 import java.util.Objects;
 
-class Person{
+public class Person{
     private String name;
     private Integer ruleId;
 
