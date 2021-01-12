@@ -11,6 +11,10 @@ public class Male implements Serializable {
 
     private String color;
 
+    public Male(String color) {
+        this.color = color;
+    }
+
     public void setAge(int age) {
         this.age = age;
     }
