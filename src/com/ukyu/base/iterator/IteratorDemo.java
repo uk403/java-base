@@ -1,7 +1,6 @@
 package com.ukyu.base.iterator;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * 迭代器的demo
@@ -10,16 +9,20 @@ import java.util.List;
  **/
 public class IteratorDemo {
     public static void main(String[] args) {
-        List<String> list = Arrays.asList("Apple", "Orange", "Pear");
-        for (String s : list) {
-            System.out.println(s);
-        }
-
+//        某个列表implements Iterable 表明该类能产生迭代器
+        ArrayList<String> list = new ArrayList<>(Arrays.asList("Apple", "Orange", "Pear"));
+//        for (String s : list) {
+//            System.out.println(s);
+//        }
 //        foreach -> 迭代器的方式
 //        列表调用其迭代器
 //        数组调用自身的循环
-        list.listIterator();
 
+//        查看调用的集合是否支持该操作
+//        ListIterator<String> it01 = list.listIterator();
+//        it01.add("01");
+//        System.out.println(list.toString());
+        Spliterator<String> spliterator = list.spliterator();
 
     }
 }
