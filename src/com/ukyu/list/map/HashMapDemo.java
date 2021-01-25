@@ -13,7 +13,7 @@ import java.util.Set;
  *
  * hash为什么那么计算？
  *
- * tableSizeFor 将自定义的容量变成2的次幂
+ * tableSizeFor 将自定义的容量变成2的次幂  为什么是2的次方
  *
  * getNode 获取树节点
  *
@@ -28,6 +28,10 @@ import java.util.Set;
  *
  * 新的方法使用，
  * 1. computeIfAbsent 2. computeIfPresent  3. compute 4. merge 5.
+ *
+ * 树化过程：
+ * https://www.cnblogs.com/finite/p/8251587.html
+ *
  * @author ukyu
  * @date 2020/12/26
  **/
@@ -40,6 +44,7 @@ public class HashMapDemo {
 //        for (Map.Entry<String, String> set : map.entrySet()) {
 //            System.out.println(set.getKey() + ":" + set.getValue());
 //        }
+
 
     }
 }
