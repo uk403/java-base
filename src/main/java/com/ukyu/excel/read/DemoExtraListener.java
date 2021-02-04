@@ -4,7 +4,7 @@ import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.event.AnalysisEventListener;
 import com.alibaba.excel.metadata.CellExtra;
 import com.alibaba.fastjson.JSON;
-import org.junit.Assert;
+//import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,7 +42,7 @@ public class DemoExtraListener extends AnalysisEventListener<DemoExtraData> {
                         extra.getFirstRowIndex(), extra.getFirstColumnIndex(), extra.getLastRowIndex(),
                         extra.getLastColumnIndex(), extra.getText());
                 } else {
-                    Assert.fail("Unknown hyperlink!");
+//                    Assert.fail("Unknown hyperlink!");
                 }
                 break;
             case MERGE:
