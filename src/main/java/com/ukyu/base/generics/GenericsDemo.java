@@ -38,7 +38,7 @@ public class GenericsDemo {
      * 参数与返回类型之间有依赖关系，可以使用泛型方法
      * 泛型方法
      */
-    private static <T> T test(T x){
+    private static  <T> T test(T x){
         return x;
     }
 //    static <T> void fromArrayToCollection(T[] a, Collection<T> c) {
