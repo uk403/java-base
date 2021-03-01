@@ -1,16 +1,21 @@
 package com.ukyu.base.stream;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j;
+
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toSet;
 
 /**
  * 流的探究
  * @author ukyu
  * @date 2021/2/26
  **/
+@Log4j
 public class StreamDemo {
 //    An operation on a stream produces a result, but does not modify its source.
 //    流分为中间操作(返回新流的操作)、终端操作
@@ -35,8 +40,27 @@ public class StreamDemo {
 //                .collect(Collectors.toList());  // No side-effects!
 
     public static void main(String[] args) {
-        List<String> list = Arrays.asList("a", "b", "c");
-//        Collection.
+        // peek(); 主要支持调试，访问一个元素就执行peek中的元素
+//        Stream.of("one", "two", "three", "four")
+//                .filter(e -> e.length() > 3)
+//                .peek(e -> System.out.println("Filtered value: " + e))
+//                .map(String::toUpperCase)
+//                .peek(e -> System.out.println("Mapped value: " + e))
+//                .collect(Collectors.toList()).stream();
+
+//        iterate
+//        Stream.iterate(0, n -> n + 1)
+//                .limit(10)
+//                .forEach(System.out::print);
+
+//        Collectors.joining(" ") 返回一个字符串
+//        List<String> l1 = new ArrayList<>();
+//        l1.add("a");
+//        l1.add("b");
+//        l1.add("c");
+//        l1.add("d");
+//        log.info(l1.stream().collect(Collectors.joining(" ")));
+
 
     }
 }
