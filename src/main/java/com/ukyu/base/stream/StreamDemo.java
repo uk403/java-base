@@ -38,5 +38,6 @@ public class StreamDemo {
         List<String> list = Arrays.asList("a", "b", "c");
 //        Collection.
 
+
     }
 }
