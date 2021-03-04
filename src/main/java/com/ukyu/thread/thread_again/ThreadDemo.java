@@ -1,6 +1,7 @@
 package com.ukyu.thread.thread_again;
 
 /**
+<<<<<<< HEAD
  * java从头到脚被设计成支持并发
  *
  * 有两个重要的执行单元
