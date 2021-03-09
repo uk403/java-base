@@ -3,6 +3,11 @@ package com.ukyu.thread.thread_again;
 /**
  * 同步； 线程通过访问共享的属性来进行交流；
  * 这样会导致线程干扰(Thread interference)&内存一致性错误(memory consistency error)
+ *
+ * synchronized的基本原理就是，(先画出java内存的模型），
+ * 将在synchronized中使用到的共享变量从线程中全部清除，而是直接从主存中获取，
+ * 退出synchronized，就是把synchronized块内修改后的共享变量直接刷新到主内存中
+ *
  * @author ukyu
  * @time 2021/3/3 23:22
  */
