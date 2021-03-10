@@ -16,6 +16,7 @@ import java.util.concurrent.atomic.AtomicLong;
 @Log4j
 public class UnsafeDemo {
     public static void main(String[] args) throws NoSuchFieldException {
+
         Unsafe unsafe = reflectGetUnsafe();
 //        指定变量在所属类中的内存偏移地址
         Long offset = unsafe.objectFieldOffset(AtomicLong.class.getDeclaredField("value"));
