@@ -15,7 +15,7 @@ public class Atomic_8 {
 //    LongAdder, 把变量分成多个变量(获取LongAdder当前值时,
 //          将所有的Cell变量的value累加后再加上base返回)
 //    相当于多个变量去争抢多个变量, 减少了争夺共享资源的并发量
-    LongAdder
+//    LongAdder
 
 }
 
