@@ -15,5 +15,7 @@ public class Atomic_8 {
 //    相当于多个变量去争抢多个变量, 减少了争夺共享资源的并发量
 //    LongAdder 是下面这个类的特例
 //    LongAccumulator可以自定义两个参数的计算规则
+//    LongAdder
+
 }
 
