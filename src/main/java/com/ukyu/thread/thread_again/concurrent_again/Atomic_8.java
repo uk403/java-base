@@ -1,7 +1,5 @@
 package com.ukyu.thread.thread_again.concurrent_again;
 
-import java.util.concurrent.atomic.LongAdder;
-
 /**
  * java8的原子操作
  * @author ukyu
@@ -15,7 +13,7 @@ public class Atomic_8 {
 //    LongAdder, 把变量分成多个变量(获取LongAdder当前值时,
 //          将所有的Cell变量的value累加后再加上base返回)
 //    相当于多个变量去争抢多个变量, 减少了争夺共享资源的并发量
-    LongAdder
-
+//    LongAdder 是下面这个类的特例
+//    LongAccumulator可以自定义两个参数的计算规则
 }
 
