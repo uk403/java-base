@@ -18,6 +18,22 @@ public class FunctionDemo {
 //        Function<Integer, Double> func = a -> a / 2.0;
 //        // 之后
 ////        func = func.andThen(a -> 3 * a);
+//        Function<Integer, Integer> f = new Function<Integer, Integer>() {
+//            @Override
+//            public Integer apply(Integer integer) {
+//                return integer * 3;
+//            }
+//        };
+
+//        int x = 5;
+//        MyFunction mf = new MyFunction() {
+//            @Override
+//            public int add(int a, int b) {
+//
+//                return a + b;
+//            }
+//        };
+
 //
 ////        之前，先处理compose里的action
 //        func = func.compose(a -> 5 * a);
@@ -53,3 +69,8 @@ public class FunctionDemo {
 
     }
 }
+
+//@FunctionalInterface 或单个
+//interface MyFunction{
+//    int add(int a, int b);
+//}
