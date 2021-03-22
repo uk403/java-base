@@ -37,8 +37,8 @@ public class LambdaDemo {
                         p -> p.getGender() == Person.Sex.MALE
                                 && p.getAge() >= 18
                                 && p.getAge() <= 25)
-                .map(p -> p.getEmailAddress())
-                .forEach(email -> System.out.println(email));
+                .map(Person::getEmailAddress)
+                .forEach(System.out::println);
 
 
 
@@ -57,6 +57,7 @@ public class LambdaDemo {
         }
     }
 }
+
 @Data
 class Person {
 
@@ -69,7 +70,6 @@ class Person {
     Sex gender;
     String emailAddress;
     int age;
-    public void printPerson() {
-        // ...
-    }
+
+//    省略getter、setter
 }

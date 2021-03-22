@@ -15,15 +15,10 @@ import java.util.function.*;
 public class FunctionDemo {
     public static void main(String[] args) {
 ////  Function    ----      apply
-//        Function<Integer, Double> func = a -> a / 2.0;
-//        // 之后
-////        func = func.andThen(a -> 3 * a);
-//        Function<Integer, Integer> f = new Function<Integer, Integer>() {
-//            @Override
-//            public Integer apply(Integer integer) {
-//                return integer * 3;
-//            }
-//        };
+//        Function<Integer, Integer> func = a -> a * 2;
+        // 之后
+//        func = func.andThen(a -> 3 * a);
+//        Function<Integer, Integer> f = a -> a * 3;
 
 //        int x = 5;
 //        MyFunction mf = new MyFunction() {
@@ -45,25 +40,25 @@ public class FunctionDemo {
 
 //  ------      Predicate
 //        Integer x = 3;
-////        IntPredicate 可以代替下面的 Predicate<Integer>
+//        IntPredicate 可以代替下面的 Predicate<Integer>
 //        Predicate<Integer> predicate = i -> i > 3;
 //
-//        log.info(predicate.negate().test(3));
+//        log.info(predicate.test(3));
 
 ////   ----     Consumer
-//        Consumer<List<Integer>> consumer = a ->
-//                a.forEach(i -> System.out.print(i + " "));
+        Consumer<List<Integer>> consumer = a ->
+                a.forEach(i -> System.out.print(i + " "));
 //
 ////    ---------    Supplier
-//        List<Integer> list = new ArrayList<>(8);
-//        Supplier<List<Integer>> s = () -> {
-//            for(int i = 0; i< 8; i++)
-//            {
-//                list.add(i);
-//            }
-//            return list;
-//        };
-//        consumer.accept(s.get());
+        List<Integer> list = new ArrayList<>(8);
+        Supplier<List<Integer>> s = () -> {
+            for(int i = 0; i< 8; i++)
+            {
+                list.add(i);
+            }
+            return list;
+        };
+        consumer.accept(s.get());
 
 //        更多的函数式接口都在java.util.function，其余都是基于这四个而来的
 

@@ -1,14 +1,11 @@
 package com.ukyu.base.stream;
 
-import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j;
 
-import java.util.*;
-import java.util.function.Function;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import static java.util.stream.Collectors.toSet;
 
 /**
  * 流的探究
@@ -31,15 +28,18 @@ public class StreamDemo {
 //    流的副作用: 操作流的同时，还改变了其他的状态(除流之外的)
 //    https://zh.wikipedia.org/wiki/%E5%89%AF%E4%BD%9C%E7%94%A8_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)
 //
-//     ArrayList<String> results = new ArrayList<>();
-//     stream.filter(s -> pattern.matcher(s).matches())
+
+    public static void main(String[] args) {
+//        ArrayList<String> results = new ArrayList<>();
+//        stream().filter(s -> s.length() > 5)
 //            .forEach(s -> results.add(s));  // Unnecessary use of side-effects!
 
-//     List<String>results =
+
+//     List<String> results =
 //        stream.filter(s -> pattern.matcher(s).matches())
 //                .collect(Collectors.toList());  // No side-effects!
 
-    public static void main(String[] args) {
+
         // peek(); 主要支持调试，访问一个元素就执行peek中的元素
 //        Stream.of("one", "two", "three", "four")
 //                .filter(e -> e.length() > 3)
@@ -51,15 +51,15 @@ public class StreamDemo {
 //        iterate
 //        Stream.iterate(0, n -> n + 1)
 //                .limit(10)
-//                .forEach(System.out::print);
+//                .forEach(a -> System.out.print(a + " "));
 
 //        Collectors.joining(" ") 返回一个字符串
-//        List<String> l1 = new ArrayList<>();
-//        l1.add("a");
-//        l1.add("b");
-//        l1.add("c");
-//        l1.add("d");
-//        log.info(l1.stream().collect(Collectors.joining(" ")));
+        List<String> l1 = new ArrayList<>();
+        l1.add("a");
+        l1.add("b");
+        l1.add("c");
+        l1.add("d");
+        log.info(l1.stream().collect(Collectors.joining(" ")));
 
 
 
