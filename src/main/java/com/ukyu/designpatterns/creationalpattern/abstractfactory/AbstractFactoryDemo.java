@@ -1,4 +1,4 @@
-package com.ukyu.designpatterns.abstractfactory;
+package com.ukyu.designpatterns.creationalpattern.abstractfactory;
 
 /**
  * 抽象工厂模式 5  -- 创建型模式

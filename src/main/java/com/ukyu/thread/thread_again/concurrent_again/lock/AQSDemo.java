@@ -1,5 +1,6 @@
 package com.ukyu.thread.thread_again.concurrent_again.lock;
 
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -11,36 +12,70 @@ import java.util.concurrent.locks.ReentrantLock;
  **/
 public class AQSDemo {
 
+    private static Semaphore se = new Semaphore(0);
+
     public static void main(String[] args) {
         Lock lock = new ReentrantLock();
         Condition condition = lock.newCondition();
+
         new Thread(() -> {
-            lock.lock();
-        try{
-            System.out.println("begin await");
-            condition.await();
-            System.out.println("end await");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } finally {
-            lock.unlock();
+//            lock.lock();
+            try {
+                se.acquireUninterruptibly();
+                System.out.println("T2运行");
+            } finally {
+                se.release();
         }
         }).start();
 
         new Thread(() -> {
-            lock.lock();
-            try{
-                System.out.println("begin signal");
-                Thread.sleep(1000);
-                condition.signal();
-                System.out.println("end signal");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+//            lock.lock();
+            try {
+                se.acquireUninterruptibly();
+                System.out.println("T1运行");
             } finally {
-                lock.unlock();
+//                lock.unlock();
+//                se.release();
             }
         }).start();
 
 
+    }
+}
+
+class TestSemaphore {
+
+    private static Semaphore sem = new Semaphore(0);
+
+    private static class Thread1 extends Thread {
+        @Override
+        public void run() {
+            sem.acquireUninterruptibly();
+        }
+    }
+
+    private static class Thread2 extends Thread {
+        @Override
+        public void run() {
+            sem.release();
+        }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        for (int i = 0; i < 10000000; i++) {
+            Thread t1 = new Thread1();
+            Thread t2 = new Thread1();
+            Thread t3 = new Thread2();
+            Thread t4 = new Thread2();
+            t1.start();
+            t2.start();
+            t3.start();
+            t4.start();
+            t1.join();
+            t2.join();
+            t3.join();
+            t4.join();
+            System.out.println(i);
+        }
     }
 }

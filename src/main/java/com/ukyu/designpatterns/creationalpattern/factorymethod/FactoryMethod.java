@@ -1,4 +1,4 @@
-package com.ukyu.designpatterns.factorymethod;
+package com.ukyu.designpatterns.creationalpattern.factorymethod;
 
 /**
  * 工厂模式

@@ -1,4 +1,4 @@
-package com.ukyu.designpatterns.simplefactorymethod;
+package com.ukyu.designpatterns.creationalpattern.simplefactorymethod;
 
 /**
  * 以程序员、产品经理为例子 4（满分5） -- 创建型模式
@@ -73,7 +73,7 @@ class Leader{
 
 //        try {
 //            //  调用
-//            //  Worker worker2 = Boss.getWorker("com.ukyu.designpatterns.simplefactorymethod.Programmer");
+//            //  Worker worker2 = Boss.getWorker("com.ukyu.designpatterns.creationalpattern.simplefactorymethod.Programmer");
 //            //  worker2.doWhat();
 //            Class<?> clazz = Class.forName(position);
 //            return (Worker) clazz.newInstance();
