@@ -16,32 +16,38 @@ public class UseULock {
         AtomicInteger i = new AtomicInteger();
         new Thread(() ->{
             lock.lock();
-            try {
-                while (i.get() == 1) {
-                    aCondition.wait();
+                try{
+                    for (int j = 0; j < 10; j++) {
+                        if (i.get() != 0) {
+                            aCondition.await();
+                        }
+                        System.out.println("A");
+                        i.set(1);
+                        bCondition.signal();
+                    }
+                }catch (InterruptedException ex){
+
                 }
-                System.out.println("A");
-                i.set(1);
-                bCondition.signalAll();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }finally {
-                lock.unlock();
-            }
+                finally {
+                    lock.unlock();
+                }
         }).start();
 
         new Thread(() ->{
             lock.lock();
-            try {
-                while (i.get() == 0) {
-                    bCondition.wait();
+            try{
+                for (int j = 0; j < 10; j++) {
+                    if (i.get() != 1) {
+                        bCondition.await();
+                    }
+                    System.out.println("B");
+                    i.set(0);
+                    aCondition.signal();
                 }
-                System.out.println("B");
-                i.set(0);
-                aCondition.signalAll();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }finally {
+            }catch (InterruptedException ex){
+
+            }
+            finally {
                 lock.unlock();
             }
         }).start();
