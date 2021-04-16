@@ -3,6 +3,7 @@ package com.ukyu.thread.thread_again.concurrent_again.lock;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.LockSupport;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -15,31 +16,35 @@ public class AQSDemo {
     private static Semaphore se = new Semaphore(0);
 
     public static void main(String[] args) {
-        Lock lock = new ReentrantLock();
-        Condition condition = lock.newCondition();
-
-        new Thread(() -> {
-//            lock.lock();
-            try {
-                se.acquireUninterruptibly();
-                System.out.println("T2运行");
-            } finally {
-                se.release();
-        }
-        }).start();
-
-        new Thread(() -> {
-//            lock.lock();
-            try {
-                se.acquireUninterruptibly();
-                System.out.println("T1运行");
-            } finally {
-//                lock.unlock();
+//        Lock lock = new ReentrantLock();
+//        Condition condition = lock.newCondition();
+//
+//        new Thread(() -> {
+////            lock.lock();
+//            try {
+//                se.acquireUninterruptibly();
+//                System.out.println("T2运行");
+//            } finally {
 //                se.release();
-            }
-        }).start();
+//        }
+//        }).start();
+//
+//        new Thread(() -> {
+////            lock.lock();
+//            try {
+//                se.acquireUninterruptibly();
+//                System.out.println("T1运行");
+//            } finally {
+////                lock.unlock();
+////                se.release();
+//            }
+//        }).start();
 
+        while (true) {
+            System.out.println("hi");
+            LockSupport.park(Thread.currentThread());
 
+        }
     }
 }
 
