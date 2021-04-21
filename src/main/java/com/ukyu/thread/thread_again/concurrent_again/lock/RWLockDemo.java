@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * @date 4/16/2021
  **/
 public class RWLockDemo {
-    private final Map<String, String> m = new TreeMap<String, String>();
+    private final Map<String, String> m = new TreeMap<>();
     private final ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();
     private final Lock r = rwl.readLock();
     private final Lock w = rwl.writeLock();
@@ -35,5 +35,34 @@ public class RWLockDemo {
         w.lock();
         try { m.clear(); }
         finally { w.unlock(); }
+    }
+
+    public static void main(String[] args) {
+        int a = 5;
+        final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
+        final Lock readLock = lock.readLock();
+        final Lock writeLock = lock.writeLock();
+        new Thread(() -> {
+            readLock.lock();
+            try {
+                System.out.println(a);
+                try {
+                    Thread.sleep(5000);
+
+            }catch (InterruptedException e) {
+                }
+            }finally {
+                readLock.unlock();
+            }
+        }).start();
+
+        new Thread(() -> {
+            readLock.lock();
+            try {
+                System.out.println(a);
+            }finally {
+                readLock.unlock();
+            }
+        }).start();
     }
 }

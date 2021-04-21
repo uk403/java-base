@@ -29,7 +29,7 @@ public class StreamDemo {
 //    https://zh.wikipedia.org/wiki/%E5%89%AF%E4%BD%9C%E7%94%A8_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)
 //
 
-    public static void main(String[] args) {
+    public static  void main(String[] args) {
 //        ArrayList<String> results = new ArrayList<>();
 //        stream().filter(s -> s.length() > 5)
 //            .forEach(s -> results.add(s));  // Unnecessary use of side-effects!

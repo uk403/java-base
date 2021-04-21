@@ -1,7 +1,5 @@
 package com.ukyu.base.generics;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,7 +9,7 @@ import java.util.List;
  * @author ukyu
  * @time 2021/2/3 15:44
  */
-@Slf4j
+//@Slf4j
 public class GenericsDemo {
 
     public static void main(String[] args) {
@@ -31,7 +29,7 @@ public class GenericsDemo {
 
 
 
-        log.info(test("Hello world!"));
+//        log.info(test("Hello world!"));
     }
 
     /**

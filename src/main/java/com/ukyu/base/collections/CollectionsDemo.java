@@ -1,18 +1,15 @@
 package com.ukyu.base.collections;
 
-import lombok.extern.log4j.Log4j;
-import org.springframework.util.StringUtils;
-
 import java.lang.reflect.InvocationTargetException;
-import java.util.*;
-import java.util.stream.Stream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Collections
  * @author ukyu
  * @date 2021/2/22
  **/
-@Log4j
+//@Log4j
 public class CollectionsDemo {
     public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         List<Integer> list = new ArrayList<>();
@@ -25,7 +22,7 @@ public class CollectionsDemo {
         {
             list1.add(i);
         }
-        log.info("变化前 " + list);
+//        log.info("变化前 " + list);
 //        1. sort(), 默认是升序，也可以自定义Comparator
 
 //        2. binarySearch(),二分法，必须将集合进行升序排序后，否则其结果不能确定;
@@ -103,7 +100,7 @@ public class CollectionsDemo {
 
 //        18. Collections.frequency 某个元素，在集合中出现的频率
         list.add(0);
-        log.info(Collections.frequency(list, 0));
+//        log.info(Collections.frequency(list, 0));
 
 //        19. Collections.disjoint() 查看元素是否有交集
 
@@ -115,7 +112,7 @@ public class CollectionsDemo {
 //        21. asLifoQueue，当你需要你一个队列并且是’Lifo(先进后出)‘的顺序可以使用
 
 
-        log.info("变化后 " + list);
+//        log.info("变化后 " + list);
 
     }
 

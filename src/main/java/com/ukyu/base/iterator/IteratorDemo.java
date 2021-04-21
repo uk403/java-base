@@ -1,13 +1,7 @@
 package com.ukyu.base.iterator;
 
-import lombok.extern.slf4j.Slf4j;
-
-import java.util.Iterator;
 import java.util.List;
 import java.util.Spliterator;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -17,7 +11,7 @@ import java.util.stream.Stream;
  * @author ukyu
  * @date 2021/1/13
  **/
-@Slf4j
+//@Slf4j
 public class IteratorDemo {
     public static void main(String[] args) {
 //        某个列表implements Iterable 表明该类能产生迭代器
@@ -53,7 +47,7 @@ public class IteratorDemo {
 //        });
 //        es.shutdown();
 
-        log.info(String.valueOf(ForkJoinPool.getCommonPoolParallelism()));
+//        log.info(String.valueOf(ForkJoinPool.getCommonPoolParallelism()));
 
         s1.hasCharacteristics(Spliterator.CONCURRENT);
     }

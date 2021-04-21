@@ -1,17 +1,16 @@
 package com.ukyu.base.stream;
 
-import lombok.extern.log4j.Log4j;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.*;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 /**
  * 几个常见的函数接口
  * @author ukyu
  * @time 2021/2/25 23:13
  */
-@Log4j
+//@Log4j
 public class FunctionDemo {
     public static void main(String[] args) {
 ////  Function    ----      apply
