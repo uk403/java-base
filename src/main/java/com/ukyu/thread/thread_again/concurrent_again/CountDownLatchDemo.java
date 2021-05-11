@@ -78,8 +78,8 @@ class Worker implements Runnable {
  *      因为CAS每次只能成功一个， 并没有作设置失败的处理)
  */
 class Driver2 {
-    private final static int N = 10;
-    public final static AtomicInteger RESULT = new AtomicInteger();
+    private static final int N = 10;
+    public static final  AtomicInteger RESULT = new AtomicInteger();
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
 
