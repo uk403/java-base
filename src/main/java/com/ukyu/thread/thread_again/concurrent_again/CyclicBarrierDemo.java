@@ -1,7 +1,6 @@
 package com.ukyu.thread.thread_again.concurrent_again;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
@@ -14,47 +13,67 @@ import java.util.concurrent.CyclicBarrier;
 public class CyclicBarrierDemo {
 }
 
+/**
+ * 每个线程处理一行数据，最后打印出来；一直重复
+ */
 class Solver {
     final int N;
-    final float[][] data;
+    static final float[][] DATA = new float[2][2];
     final CyclicBarrier barrier;
 
-    class Worker implements Runnable {
+    public Solver(float[][] matrix) {
+
+        N = matrix.length;
+        Runnable barrierAction =
+                this::mergeRows;
+        barrier = new CyclicBarrier(N, barrierAction);
+
+        for (int i = 0; i < N; i++) {
+            Thread thread = new Thread(new Worker(i, barrier));
+            thread.start();
+        }
+    }
+
+    public void mergeRows() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ignored) {
+
+        }
+        System.out.println("处理后的DATA: " + Arrays.deepToString(DATA));
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        Arrays.fill(DATA[0], 1);
+        Arrays.fill(DATA[1], 2);
+        System.out.println("处理前的DATA: " + Arrays.deepToString(DATA));
+
+        new Solver(DATA);
+
+    }
+
+    static class Worker implements Runnable {
         int myRow;
-        Worker(int row) { myRow = row; }
+        CyclicBarrier barrier;
+
+        Worker(int row, CyclicBarrier barrier) {
+            myRow = row;
+            this.barrier = barrier;
+        }
         @Override
         public void run() {
-            while (!done()) {
-                processRow(myRow);
+            while (true) {
+            processRow(myRow);
 
                 try {
                     barrier.await();
-                } catch (InterruptedException ex) {
-                    return;
-                } catch (BrokenBarrierException ex) {
-                    return;
-                }
+                } catch (InterruptedException | BrokenBarrierException ignored) {}
             }
         }
-    }
 
-    public Solver(float[][] matrix) throws InterruptedException {
-        data = matrix;
-        N = matrix.length;
-        Runnable barrierAction =
-                new Runnable() { public void run() { mergeRows(...); }};
-        barrier = new CyclicBarrier(N, barrierAction);
-
-        List<Thread> threads = new ArrayList<Thread>(N);
-        for (int i = 0; i < N; i++) {
-            Thread thread = new Thread(new Worker(i));
-            threads.add(thread);
-            thread.start();
-        }
-
-        // wait until done
-        for (Thread thread : threads) {
-            thread.join();
+        public void processRow(int myRow){
+            Arrays.fill(DATA[myRow], DATA[myRow][0] + 2);
         }
     }
+
 }
