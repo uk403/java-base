@@ -42,27 +42,41 @@ public class RWLockDemo {
         final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
         final Lock readLock = lock.readLock();
         final Lock writeLock = lock.writeLock();
-        new Thread(() -> {
-            readLock.lock();
-            try {
-                System.out.println(a);
-                try {
-                    Thread.sleep(5000);
+        readLock.lock();
+        System.out.println("读锁");
+        readLock.unlock();
 
-            }catch (InterruptedException e) {
-                }
-            }finally {
-                readLock.unlock();
-            }
-        }).start();
-
-        new Thread(() -> {
-            readLock.lock();
-            try {
-                System.out.println(a);
-            }finally {
-                readLock.unlock();
-            }
-        }).start();
+//        new Thread(() -> {
+//            readLock.lock();
+//            try {
+//                System.out.println(a);
+//                try {
+//                    Thread.sleep(5000);
+//
+//            }catch (InterruptedException e) {
+//                }
+//            }finally {
+//                readLock.unlock();
+//            }
+//        }).start();
+//
+//        new Thread(() -> {
+//            readLock.lock();
+//            try {
+//                System.out.println(a);
+//            }finally {
+//                readLock.unlock();
+//            }
+//        }).start();
     }
 }
+            /*
+             * 对下面的条件做一个总述:
+             * 1. 如果写锁被其他线程持有，失败
+             * 2. 否则，如果此线程有资格去获取写锁，首先查询是否需要阻塞(readerShouldBlock).如果不需要，就通过CAS更新state。
+             * 这个步骤不会检查重入获取，which is postponed to full version
+             *    to avoid having to check hold count in
+             *    the more typical non-reentrant case. ？？？
+             *
+             * 3. 如果上面两步都失败了，可能是当前线程没有资格，或CAS失败，或者count数量饱和了，然后执行fullTryAcquireShared
+             */

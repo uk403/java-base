@@ -1,5 +1,7 @@
 package com.ukyu.thread.thread_again.concurrent_again.lock;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -40,11 +42,16 @@ public class AQSDemo {
 //            }
 //        }).start();
 
-        while (true) {
-            System.out.println("hi");
-            LockSupport.park(Thread.currentThread());
+//        while (true) {
+//            System.out.println("hi");
+//            LockSupport.park(Thread.currentThread());
+//
+//        }
 
-        }
+      Lock lock = new ReentrantLock();
+      ExecutorService executorService = Executors.newFixedThreadPool(3);
+
+
     }
 }
 
