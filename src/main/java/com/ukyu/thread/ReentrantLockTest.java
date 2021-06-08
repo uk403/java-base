@@ -1,6 +1,7 @@
 package com.ukyu.thread;
 
 import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -11,7 +12,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @date 2020/10/18
  **/
 public class ReentrantLockTest {
-    private ReentrantLock lock = new ReentrantLock();
+    private Lock lock = new ReentrantLock();
     private Condition condition = lock.newCondition();
 
     public static void main(String[] args) {

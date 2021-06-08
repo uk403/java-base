@@ -1,7 +1,5 @@
 package com.ukyu.thread.thread_again.concurrent_again.list;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Condition;
@@ -17,6 +15,7 @@ public class ConcurrentLinkedQueueDemo {
         ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue<>();
         queue.offer("A");
         queue.offer("B");
+
 
         AtomicInteger count = new AtomicInteger(0);
         ReentrantLock lock = new ReentrantLock();
