@@ -12,7 +12,5 @@ public class ConcurrentLinkedQueueDemo {
         ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue<>();
         queue.offer("A");
         queue.offer("B");
-        queue.offer("C");
-        queue.remove("C");
     }
 }
