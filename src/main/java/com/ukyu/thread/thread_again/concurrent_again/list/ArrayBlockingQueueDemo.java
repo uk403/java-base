@@ -9,12 +9,13 @@ import java.util.concurrent.ArrayBlockingQueue;
  **/
 public class ArrayBlockingQueueDemo {
     public static void main(String[] args) {
-        ArrayBlockingQueue<Integer> array = new ArrayBlockingQueue<>(3);
-        array.offer(1);
-        array.offer(2);
-        array.offer(3);
-//        array.poll();
-//        array.offer(4);
+        ArrayBlockingQueue<String> array = new ArrayBlockingQueue<>(3);
+        array.offer("A");
+        array.offer("B");
+        array.offer("C");
+        array.poll();
+        array.offer("D");
         System.out.println(array);
+
     }
 }
