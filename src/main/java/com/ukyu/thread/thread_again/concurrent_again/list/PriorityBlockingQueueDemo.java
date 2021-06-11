@@ -5,7 +5,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class PriorityBlockingQueueDemo {
     public static void main(String[] args) throws InterruptedException {
-        PriorityBlockingQueue<String> queue = new PriorityBlockingQueue<>();
+        PriorityBlockingQueue<Integer> queue = new PriorityBlockingQueue<>();
+        queue.offer(5);
+        queue.offer(1);
+        queue.offer(2);
+        queue.offer(0);
+        System.out.println(queue);
 
 //        AtomicInteger count = new AtomicInteger(0);
 //        Thread t1 = new Thread(() ->{
@@ -36,9 +41,5 @@ public class PriorityBlockingQueueDemo {
 //        t2.start();
 //        Thread.sleep(1000);
 //        t3.start();
-
-        int oldCap = Integer.MAX_VALUE;
-        int minCap = oldCap - 1;
-        System.out.println(minCap);
     }
 }
