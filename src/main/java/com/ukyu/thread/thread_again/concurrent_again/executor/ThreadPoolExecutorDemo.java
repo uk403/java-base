@@ -20,17 +20,18 @@ public class ThreadPoolExecutorDemo {
         ThreadFactory namedThreadFactory =
                 new ThreadFactoryBuilder().setNameFormat("my-pool-thread-%d").build();
         ThreadPoolExecutor executor =
-                new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS
-                        , new LinkedBlockingQueue<>(), namedThreadFactory);
-        try {
-            executor.execute(() -> log.info("Hello "));
-            executor.execute(() -> log.info("World!"));
-        }catch (Throwable x)
-        {
-            throw x;
-        }
+                new ThreadPoolExecutor(5, 10, 60, TimeUnit.SECONDS,
+                        new LinkedBlockingQueue<>(), namedThreadFactory);
+//        try {
+//            executor.execute(() -> log.info("Hello "));
+//            executor.execute(() -> log.info("World!"));
+//        }catch (Throwable x)
+//        {
+//            throw x;
+//        }
 
-
+        int n = executor.prestartAllCoreThreads();
+        System.out.println(n);
 
 
     }
