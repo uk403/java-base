@@ -1,7 +1,6 @@
 package com.ukyu.thread.thread_again.concurrent_again.list;
 
 import java.util.concurrent.PriorityBlockingQueue;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class PriorityBlockingQueueDemo {
     public static void main(String[] args) throws InterruptedException {
