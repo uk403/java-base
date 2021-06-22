@@ -6,7 +6,6 @@ import lombok.Data;
 
 import java.util.concurrent.*;
 import java.util.function.Consumer;
-import java.util.function.Function;
 
 /**
  * DelayQueue
@@ -14,7 +13,7 @@ import java.util.function.Function;
  * @date 5/6/2021
  **/
 public class DelayQueueDemo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         DelayQueue<DelayObject<Integer>> queue = new DelayQueue<>();
 
         ThreadFactory factory =  new ThreadFactoryBuilder().setNameFormat("my-delayTask-thread-%d").build();
@@ -32,7 +31,7 @@ public class DelayQueueDemo {
         }
 
         while(!queue.isEmpty()){
-            executor.execute(queue.poll());
+            executor.execute(queue.take());
         }
 
         executor.shutdown();
@@ -53,7 +52,7 @@ class DelayObject<T> implements Delayed, Runnable{
 
     @Override
     public long getDelay(TimeUnit unit) {
-        return unit.convert(delay - System.currentTimeMillis(), TimeUnit.MILLISECONDS);
+        return unit.convert(delay - System.currentTimeMillis(), TimeUnit.NANOSECONDS);
     }
 
     @Override
