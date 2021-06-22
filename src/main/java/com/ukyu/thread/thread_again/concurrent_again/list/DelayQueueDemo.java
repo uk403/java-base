@@ -6,7 +6,6 @@ import lombok.Data;
 
 import java.util.concurrent.*;
 import java.util.function.Consumer;
-import java.util.function.Function;
 
 /**
  * DelayQueue
@@ -14,36 +13,33 @@ import java.util.function.Function;
  * @date 5/6/2021
  **/
 public class DelayQueueDemo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         DelayQueue<DelayObject<Integer>> queue = new DelayQueue<>();
 
         ThreadFactory factory =  new ThreadFactoryBuilder().setNameFormat("my-delayTask-thread-%d").build();
         ThreadPoolExecutor executor = new ThreadPoolExecutor(8, 10, 60,
-                TimeUnit.SECONDS, new LinkedBlockingQueue<>(), factory );
+                TimeUnit.SECONDS, new LinkedBlockingQueue<>(), factory);
         for(int i = 0; i < 10; i++)
         {
             Long delay = System.currentTimeMillis() + 1000 * i;
 
-            DelayObject<Integer> delayObject = new DelayObject<>(delay, i * 10, (x) ->{
-                System.out.println(Thread.currentThread().getName() + " " + x);
-            });
+            DelayObject<Integer> delayObject = new DelayObject<>(delay, i * 10, x -> System.out.println(Thread.currentThread().getName() + " " + x));
 
             queue.offer(delayObject);
         }
 
         while(!queue.isEmpty()){
-            executor.execute(queue.poll());
+            executor.execute(queue.take());
         }
 
         executor.shutdown();
+
     }
 }
 
 @Data
 @AllArgsConstructor
 class DelayObject<T> implements Delayed, Runnable{
-
-
 
     private Long delay;
 
