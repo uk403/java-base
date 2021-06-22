@@ -49,7 +49,7 @@ class DelayObject<T> implements Delayed, Runnable{
 
     @Override
     public long getDelay(TimeUnit unit) {
-        return unit.convert(delay - System.currentTimeMillis(), TimeUnit.MILLISECONDS);
+        return unit.convert(delay - System.currentTimeMillis(), TimeUnit.NANOSECONDS);
     }
 
     @Override
