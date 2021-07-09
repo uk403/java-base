@@ -36,6 +36,11 @@ public class Trie {
 
     private Node root;
 
+    /**
+     * 存放trie树中查询到的联想词
+     */
+    private List<String> list = new ArrayList<>();
+
     public Trie(){
         root = new Node();
         size = 0;
@@ -61,17 +66,19 @@ public class Trie {
     }
 
     /**
-     * 存放trie树中查询到的联想词
-     */
-    private List<String> list = new ArrayList<>();
-
-    /**
      * 根据前缀查找
      * @param prefix 前缀
+     * @param node 节点
+     * @param num 返回的个数
      */
-    public List<String> prefixMatching(String prefix, Node node){
+    public List<String> prefixMatching(String prefix, Node node, int num){
 
-
+        boolean bounded = true;
+        if(num < 0)
+        {
+            num = Integer.MAX_VALUE;
+            bounded = false;
+        }
         for(char ch : prefix.toCharArray()){
             if(node.child.get(ch) == null) {
                 log.info("没有{}的联想词", prefix);
@@ -81,6 +88,7 @@ public class Trie {
         }
         // 搜索
         dfs(node, new StringBuilder(prefix));
+        list = list.subList(0, !bounded ? list.size() : num);
         return list;
     }
 
@@ -94,9 +102,7 @@ public class Trie {
 
         // 回溯
         for(char ch: node.child.keySet()){
-
-            dfs(node.child.get(ch), new StringBuilder(str + "" + ch));
-//            str.deleteCharAt(str.length() - 1);
+            dfs(node.child.get(ch), new StringBuilder(str + String.valueOf(ch)));
         }
 
     }
@@ -126,11 +132,10 @@ public class Trie {
         start = System.currentTimeMillis();
 
         // 从redis中，获取这个树
-        String prefix = "博";
-        trie.prefixMatching(prefix, trie.root);
+        String prefix = "易方";
+        trie.prefixMatching(prefix, trie.root, -1);
         log.info("耗时: {}", System.currentTimeMillis() - start);
         log.info("{} 的联想词 {}", prefix, trie.list);
-
     }
 
 
