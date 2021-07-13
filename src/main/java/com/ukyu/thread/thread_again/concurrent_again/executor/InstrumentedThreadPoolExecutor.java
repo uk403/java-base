@@ -49,7 +49,7 @@ public class InstrumentedThreadPoolExecutor extends ThreadPoolExecutor {
         try {
             totalServiceTime.addAndGet(System.nanoTime() - startTime.get());
             totalPoolTime.addAndGet(startTime.get() - timeOfRequest.remove(task));
-            startTime.remove();
+//            startTime.remove();
             numberOfRequestsRetired.incrementAndGet();
         } finally {
             super.afterExecute(task, t);

@@ -1,5 +1,7 @@
 package com.ukyu.thread.thread_again.concurrent_again.executor;
 
+import org.springframework.context.annotation.EnableMBeanExport;
+
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -7,10 +9,11 @@ import java.util.concurrent.TimeUnit;
  * 线程池监视器
  * @author ukyu
  */
-public class ExecutorServiceMonitor implements ExecutorServiceMonitorMXBean {
-    private ThreadPoolExecutor executor;
 
-    public ExecutorServiceMonitor(ThreadPoolExecutor executor){
+public class ExecutorServiceMonitor implements ExecutorServiceMonitorMXBean {
+    private InstrumentedThreadPoolExecutor executor;
+
+    public ExecutorServiceMonitor(InstrumentedThreadPoolExecutor executor){
         this.executor = executor;
     }
     long fromNanoToSeconds(long nanos) {
